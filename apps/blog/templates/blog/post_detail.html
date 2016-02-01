@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{# {% load comments %} #}
+{% block centerColumn %}
+<h2>{{object.title}}</h2>
+{{object.body}}
+{# {% render_comment_form for object %} #}
+{# {% render_comment_list for object %} #}
+{% endblock centerColumn %}
+

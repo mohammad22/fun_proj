@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+{% block centerColumn %}
+{% for post in object_list %}
+   <h5><span class = "glyphicon glyphicon-time"></span> 
+        Posted {{post.date}}, by {{post.author}}:</h5><br>
+    <p>{{post.body|truncatewords:"70"}} 
+             <a href = {% url 'blog:post' slug=post.slug %} > More >></a>
+    </p><br>
+{% endfor %}
+{% endblock centerColumn %}
