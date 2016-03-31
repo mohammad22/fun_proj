@@ -1,9 +1,56 @@
 {% extends 'blog/base.html' %}
-{# {% load comments %} #}
+{% load i18n comments fluent_comments_tags %}
+
+{% block extrahead %} {{block.super}}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}" />
+{% endblock %}
+
+{% block scripts %} {{block.super}}
+    <script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
 {% block centerColumn %}
 <h2>{{object.title}}</h2>
-{{object.body}}
-{# {% render_comment_form for object %} #}
-{# {% render_comment_list for object %} #}
+    <h5><span class = "glyphicon glyphicon-time"></span> 
+        Posted {{object.date}}, by {{object.author}}:</h5><br>
+<br>
+{{object.html|safe}}
+<br>
+<h3>Tags: </h3>
+    <h4>
+    {% for tag in object.tags.all %}
+        <span class = "label label-primary">
+            <a href={{ tag.get_absolute_url }}> {{ tag.name }}</a>
+        </span>,
+    {% endfor %}
+    </h4>    
+{% if object.images %}
+    {% for i in object.images %}
+        <a class= "imager {{i.title}}" href = "{{i.image.url}}"> </a>
+    {% endfor %}
+{% endif %} 
+{% get_comment_count for object as comment_count %}
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7">
+            <h3> Comments: </h3>    
+            <p>{{comment_count}} comments has been posted.  </p>
+            <div id="comments-wrapper">
+                {% render_comment_list for object %}
+            </div>
+        </div>
+    <div class="row panel panel-default" id="comments-form-wrapper">
+        <div class = "col-md-7">  
+               <div class="panel-heading"> Leave a comment: </div>
+                <div class="panel-body"> {% render_comment_form for object %} </div>
+        </div> 
+    </div>
+</div>
 {% endblock centerColumn %}
 

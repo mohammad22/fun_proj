@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block centerColumn %}
+<br>
+<br>
+<h3> Tags: </h3>
+<br>
+
+<h4> 
+{% for object in object_list %}
+    <span class = "label label-primary">
+    <a href={{object.get_absolute_url}}> {{object.name}}</a></span>,
+{% endfor %}
+</h4>
+{% endblock centerColumn %}

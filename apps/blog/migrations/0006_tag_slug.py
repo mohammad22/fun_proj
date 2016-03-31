@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0004_auto_20160119_2113'),
+        ('blog', '0005_auto_20160304_0338'),
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='post',
-            name='date',
-            field=models.DateField(),
+        migrations.AddField(
+            model_name='tag',
+            name='slug',
+            field=models.SlugField(max_length=255, blank=True),
         ),
     ]

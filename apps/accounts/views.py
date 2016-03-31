@@ -14,21 +14,22 @@ from .forms import RegistrationForm, LoginForm
 class SignUpView(views.AnonymousRequiredMixin, views.FormValidMessageMixin,
                  generic.CreateView):
     form_class = RegistrationForm
-    form_valid_message = "Thanks for signing up! Go ahead and login."
     model = User
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('accounts:login')
     template_name = 'accounts/signup.html'
 
-    def form_valid(self, form):
-        resp = super(SignUpView, self).form_valid(form)
-        TalkList.objects.create(user=self.object, name='To Attend')
-        return resp
+    #def form_valid(self, form):
+    #    resp = super(SignUpView, self).form_valid(form)
+    #    self.form_valid_message = "Thanks for signing up %s! Go ahead and login." % self.object.username
+    #   return resp
 
+    def get_form_valid_message(self):
+        return u"Thanks for signing up %s. Go ahead and login." % self.object.username
 
 class LoginView(views.AnonymousRequiredMixin, views.FormValidMessageMixin,
                 generic.FormView):
     form_class = LoginForm
-    form_valid_message = "You're logged into your account."
+    #form_valid_message = "You're logged into your account."
     success_url = reverse_lazy('blog:postbriefs')
     template_name = 'accounts/login.html'
     print "went to login"
@@ -42,6 +43,9 @@ class LoginView(views.AnonymousRequiredMixin, views.FormValidMessageMixin,
             return super(LoginView, self).form_valid(form)
         else:
             return self.form_invalid(form)
+    
+    def get_form_valid_message(self):
+        return u"You are logged in now %s." % self.request.user.username
 
 class LogoutView(views.LoginRequiredMixin, views.MessageMixin,
                  generic.RedirectView):
@@ -49,7 +53,8 @@ class LogoutView(views.LoginRequiredMixin, views.MessageMixin,
     permanent = False
 
     def get(self, request, *args, **kwargs):
+        name = request.user.username
         logout(request)
-        self.messages.success("You've been logged out. Come back soon!")
+        self.messages.success("%s You've been logged out. Come back soon!" % name)
         return super(LogoutView, self).get(request, *args, **kwargs)
 

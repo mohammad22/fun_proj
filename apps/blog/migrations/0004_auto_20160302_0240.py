@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0002_auto_20160114_0228'),
+        ('blog', '0003_tag'),
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='post',
-            name='date',
-            field=models.DateField(auto_now=True, null=True),
+        migrations.AlterField(
+            model_name='image',
+            name='post',
+            field=models.ForeignKey(related_name='images', to='blog.Post'),
         ),
     ]

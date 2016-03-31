@@ -1,14 +1,12 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 from crispy_forms.bootstrap import FormActions
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import  Layout, ButtonHolder, Submit
-from django.contrib.auth.forms import AuthenticationForm
 
 class RegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
-
         self.helper = FormHelper()
         self.helper.layout = Layout(
             'username',
@@ -22,7 +20,6 @@ class RegistrationForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
-
         self.helper = FormHelper()
         self.helper.layout = Layout(
             'username',

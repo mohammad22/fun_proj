@@ -7,15 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0008_auto_20160128_1805'),
+        ('blog', '0004_auto_20160302_0240'),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='comment',
-            name='author',
-        ),
-        migrations.DeleteModel(
-            name='Comment',
+        migrations.AlterField(
+            model_name='image',
+            name='post',
+            field=models.ForeignKey(to='blog.Post'),
         ),
     ]

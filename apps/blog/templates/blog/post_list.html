@@ -1,10 +1,28 @@
 {% extends 'blog/base.html' %}
 {% block centerColumn %}
 {% for post in object_list %}
-   <h5><span class = "glyphicon glyphicon-time"></span> 
+    <h3> {{post.title}}</h3>
+    <h5><span class = "glyphicon glyphicon-time"></span> 
         Posted {{post.date}}, by {{post.author}}:</h5><br>
-    <p>{{post.body|truncatewords:"70"}} 
+    {% autoescape off %}
+    <p>{{post.html|truncatewords:"70"}} 
              <a href = {% url 'blog:post' slug=post.slug %} > More >></a>
-    </p><br>
+         </p><br>
+    {% endautoescape %}
 {% endfor %}
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{% url 'blog:postbriefs' %}?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{% url 'blog:postbriefs' %}?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
 {% endblock centerColumn %}
