@@ -1,5 +1,5 @@
 // This should be put at the end of html template. It dynamically populates the links for the images in the markup version of the html document. 
-// the template should provide <a> elemnets of class
+// the template should provide <a> elements of class
 // "imager 'title'", where 'title' matches the value of 'alt' property 
 // of the image in the markup 
 (function(){

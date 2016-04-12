@@ -7,5 +7,5 @@ django-contrib-comments
 django-fluent-comments >= 1.2
 django-threadedcomments >= 1.0.1
 django_braces >= 1.8.1
-
+python-social-auth==0.2.14
 
