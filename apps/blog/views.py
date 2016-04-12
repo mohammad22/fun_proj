@@ -10,11 +10,11 @@ class HomePageView(generic.ListView):
     ordering = '-date'
     paginate_by = 5
     def get_queryset(self, *args, **kwargs):
-        list = super(HomePageView, self).get_queryset(*args, **kwargs)
+        li = super(HomePageView, self).get_queryset(*args, **kwargs)
         if self.request.user.is_staff:
-            return list
+            return li
         else:
-            return list.filter(published=True)
+            return li.filter(published=True)
 
 class PostView(generic.DetailView):
     model = models.Post
@@ -31,6 +31,9 @@ class TagDetailView(generic.DetailView):
     def get_object(self, *args, **kwargs):
         obj = super(TagDetailView, self).get_object(*args, **kwargs)
         posts = models.Post.objects.filter(tags__name__contains=obj.name)
-        return posts
+        if self.request.user.is_staff:
+            return posts
+        else:
+            return posts.filter(published=True)
 
 

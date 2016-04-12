@@ -1,6 +1,6 @@
-Django >= 1.8.0
+Django == 1.8.12
 django-crispy-forms >= 1.6.0
-Pillow >= 3.1.1
+Pillow
 mistune >= 0.7.1
 pygments >= 2.1
 django-contrib-comments
@@ -8,4 +8,4 @@ django-fluent-comments >= 1.2
 django-threadedcomments >= 1.0.1
 django_braces >= 1.8.1
 python-social-auth==0.2.14
-
+django-allauth>=0.25
