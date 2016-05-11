@@ -9,4 +9,6 @@ django-fluent-comments >= 1.2
 django-threadedcomments >= 1.0.1
 django_braces >= 1.8.1
 dj_database_url
+django-toolbelt
+
 
