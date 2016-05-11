@@ -94,6 +94,6 @@ class CodeMathRenderer(mistune.Renderer):
 
 def Engine():
     renderer = CodeMathRenderer()
-    return mistune.Markdown(renderer = renderer, escape = False)
+    return MarkdownWithMath(renderer = renderer, escape = False)
 
     

@@ -63,7 +63,7 @@ class Image(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length = 20)
     slug = models.SlugField(max_length = 255, blank = True)
-    posts = models.ManyToManyField(Post, null = True, related_name = 'tags')
+    posts = models.ManyToManyField(Post, related_name = 'tags')
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -75,4 +75,4 @@ class Tag(models.Model):
     def get_absolute_url(self):
         return reverse('blog:tagdetail', kwargs = {'slug': self.slug})
 
-
+   
