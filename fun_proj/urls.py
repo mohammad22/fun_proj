@@ -15,6 +15,7 @@ sitemaps = {
 urlpatterns = patterns(
     '',
     # url(r'^$', 'fun_proj.views.home', name='home'),
+    url(r'^$', include('apps.blog.urls', namespace = 'blog')),
     url(r'^blog/', include('apps.blog.urls', namespace = 'blog')),
     url(r'^accounts/', include('apps.accounts.urls', namespace = 'accounts')),
     url(r'^blogadmin/', include(admin.site.urls)),
