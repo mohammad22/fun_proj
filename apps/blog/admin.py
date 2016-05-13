@@ -16,10 +16,10 @@ class TagInline(admin.TabularInline):
 class PostAdmin(admin.ModelAdmin):
     exclude = ('slug', 'html')
     inlines = [ImageInline, TagInline]
-    readonly_fields = ['date']
+    #readonly_fields = ['date']
     fieldsets = (
         ('Metadata of Post', {
-            'fields': ('author', 'title', 'published'),
+            'fields': ('author', 'title', 'date', 'published'),
             'classes': ('collapse',)
         }),
         ('Post', {

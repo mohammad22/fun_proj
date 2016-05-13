@@ -7,7 +7,7 @@ from django.template import Template, Context
 import datetime as dt
 
 class Author(models.Model):
-    user = models.OneToOneField( User, on_delete = models.CASCADE, primary_key = True)
+    user = models.OneToOneField(User, on_delete = models.CASCADE, primary_key = True)
     homepage = models.URLField(null = True, blank = True)
     
     def __unicode__(self):
