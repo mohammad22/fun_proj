@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.template.defaultfilters import slugify
 from .markdown import Engine
 from django.template import Template, Context
+import datetime as dt
 
 class Author(models.Model):
     user = models.OneToOneField( User, on_delete = models.CASCADE, primary_key = True)
@@ -30,7 +31,7 @@ class Post(models.Model):
     title = models.CharField(max_length = 500, unique = True)
     body = models.TextField(max_length = 10000)
     html = models.TextField(max_length = 10000, blank = True)
-    date = models.DateField(auto_now = True, auto_now_add = False)
+    date = models.DateField(default = dt.date.today, editable = True)
     slug = models.SlugField(max_length = 255, blank = True)
     published = models.BooleanField(default= False)
   

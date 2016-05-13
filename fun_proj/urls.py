@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from apps.blog.sitemaps import PostSitemap
-
+from apps.blog.views import HomePageView 
 admin.autodiscover()
 
 sitemaps = {
@@ -16,6 +16,7 @@ urlpatterns = patterns(
     '',
     # url(r'^$', 'fun_proj.views.home', name='home'),
     #url(r'^$', include('apps.blog.urls', namespace = 'blog')),
+    url(r'^$', HomePageView.as_view()),
     url(r'^blog/', include('apps.blog.urls', namespace = 'blog')),
     url(r'^accounts/', include('apps.accounts.urls', namespace = 'accounts')),
     url(r'^blogadmin/', include(admin.site.urls)),

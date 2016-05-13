@@ -2,6 +2,7 @@ from django.views import generic
 from django.shortcuts import render_to_response
 from . import models
 
+
 def about(request):
     return render_to_response('blog/about.html')
 
@@ -11,6 +12,7 @@ class HomePageView(generic.ListView):
     paginate_by = 5
     def get_queryset(self, *args, **kwargs):
         li = super(HomePageView, self).get_queryset(*args, **kwargs)
+        #li.prefetch_related('tags')
         if self.request.user.is_staff:
             return li
         else:
