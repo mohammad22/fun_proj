@@ -23,7 +23,7 @@ class PostAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
         ('Post', {
-            'fields': ('date', 'body') 
+            'fields': ('body', ) 
         }),
     ) 
     
