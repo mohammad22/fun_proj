@@ -2,7 +2,7 @@
 // the template should provide <a> elements of class
 // "imager 'title'", where 'title' matches the value of 'alt' property 
 // of the image in the markup 
-(function(){
+(function($){
     var a_imagers = $("a.imager");
     if (a_imagers.length > 0){ 
         $("img").each(function (idx){
@@ -15,4 +15,4 @@
                 .load();
         });
     }
-})();
+})(jQuery);

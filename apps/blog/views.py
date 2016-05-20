@@ -1,6 +1,7 @@
 from django.views import generic
 from django.shortcuts import render_to_response
 from . import models
+from django.http import JsonResponse
 
 
 def about(request):
@@ -25,8 +26,12 @@ class PostView(generic.DetailView):
         obj.images = models.Image.objects.filter(post = obj)
         return obj
 
-class TagsView(generic.ListView):
-    model = models.Tag
+def TagsView(request):
+    tags = models.Tag.objects.all()
+    pre_tags = {}
+    for t in tags: pre_tags[t.name] = t.get_absolute_url()
+    return JsonResponse(pre_tags, safe = False)
+
 
 class TagDetailView(generic.DetailView):
     model = models.Tag

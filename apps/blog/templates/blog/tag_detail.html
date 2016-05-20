@@ -2,7 +2,6 @@
 {% block centerColumn %}
 <br>
 <br>
-<h3>Posts for {{request.Get.slug}}: </h3>
 {% for post in object %}
     <p>
        <a href={{post.get_absolute_url}}> {{post.title}}</a>

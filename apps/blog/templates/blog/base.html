@@ -79,14 +79,15 @@
 </div><!-- "navbar" --!>
 <div class="container-fluid">
   <div class="row content">
-     <div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav">
        {% block leftColumn %} 
        <ul class="nav nav-pills nav-stacked">
          <li><a href="{% url 'blog:postbriefs' %}">Home</a></li>
          <li><a href="{% url 'blog:about' %}">About</a></li>
          <li><a href="{% url 'blog:post_feed'%}">RSS feed</a></li>
-         <li><a href="{% url 'blog:tags' %}">Tags</a></li>
+         <li>Tags: </li>
        </ul><br>
+         <div id="load-tags"><a id='tags-url' href="{% url 'blog:tags' %}"></a></div>
        {% endblock leftColumn %}
     </div>
     <div class = "col-sm-10 central">
@@ -96,6 +97,7 @@
   </div>
 </div>
 {% load staticfiles %}
+<script type="text/javascript" src = "{% static 'blog/tags-ajax.js' %}"></script>
 <script type="text/javascript" src = "{% static 'blog/imager.js' %}"></script>
 </body>
 </html>
