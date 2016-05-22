@@ -5,7 +5,7 @@
     $.getJSON(url, function(data){
         var items = [];
         $.each(data, function(key, val){
-           items.push("  <span style='font-size:1.1em;line-height:200%;' class = 'label label-info'> <a href='" + val + "'>" + key + "</a></span> ");
+           items.push("<span style='font-size:1.1em;line-height:200%;' class = 'label label-info'> <a href='" + val + "'>" + key + "</a></span> ");
         });
         tag_position.html(items.join(""));
     });

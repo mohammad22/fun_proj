@@ -5,7 +5,7 @@
     <h5><span class = "glyphicon glyphicon-time"></span> 
         Posted {{post.date}}, by {{post.author}}:</h5><br>
     {% autoescape off %}
-    <p>{{post.html|truncatewords:"70"}} 
+    <p>{{post.html|truncatechars_html:"50"}} 
     <a href = {{post.get_absolute_url}} > More >></a>
          </p><br>
     {% endautoescape %}
