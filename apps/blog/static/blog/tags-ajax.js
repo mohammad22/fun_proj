@@ -1,7 +1,7 @@
 (function($){
     var tag_position = $('div#load-tags');
     var url = $('#tags-url', tag_position).attr('href');
-    console.log(url);
+    //console.log(url);
     $.getJSON(url, function(data){
         var items = [];
         $.each(data, function(key, val){

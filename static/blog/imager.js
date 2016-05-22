@@ -4,11 +4,13 @@
 // of the image in the markup 
 (function($){
     var a_imagers = $("a.imager");
-    if (a_imagers.length > 0){ 
+    if (a_imagers.length > 0){
         $("img").each(function (idx){
             var image = $(this);
             var title = "." + image.prop('alt');
+            console.log(title);
             var link = a_imagers.filter(title).prop('href');
+            console.log(link);
             image
                 .prop('src', link)
                 .addClass('img-responsive') 
