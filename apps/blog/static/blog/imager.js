@@ -5,7 +5,7 @@
 (function($){
     var a_imagers = $("a.imager");
     if (a_imagers.length > 0){
-        $("img").each(function (idx){
+        $("img[src='']").each(function (idx){
             var image = $(this);
             var title = "." + image.prop('alt');
             console.log(title);
