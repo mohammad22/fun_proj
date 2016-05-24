@@ -10,7 +10,7 @@ def about(request):
 class HomePageView(generic.ListView):
     model = models.Post
     ordering = '-date'
-    paginate_by = 5
+    paginate_by = 3
     def get_queryset(self, *args, **kwargs):
         li = super(HomePageView, self).get_queryset(*args, **kwargs)
         #li.prefetch_related('tags')
