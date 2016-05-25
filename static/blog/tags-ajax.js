@@ -5,8 +5,16 @@
     $.getJSON(url, function(data){
         var items = [];
         $.each(data, function(key, val){
-           items.push("<span style='font-size:1.1em;line-height:200%;' class = 'label label-info'> <a href='" + val + "'>" + key + "</a></span> ");
+            var label = $('<span ><a></a></span> ')
+                        .attr('style', 'font-size:1em')
+                        .attr('line-height', '200%')
+                        .addClass('label label-info')
+                        .find('a')
+                        .attr('href', val)
+                        .text(key)
+                        .end()
+                        .appendTo(tag_position);
+            var dummy = $('<p></p>').appendTo(tag_position); 
         });
-        tag_position.html(items.join(""));
     });
 })(jQuery);
