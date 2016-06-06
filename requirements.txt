@@ -11,5 +11,8 @@ django_braces >= 1.8.1
 dj_database_url
 django-toolbelt
 gunicorn
+redis==2.10.5
+django-redis-cache==1.6.5
+
 
 
