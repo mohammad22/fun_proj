@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.views.decorators.cache import cache_page
 
 class cacheMixin(object):
-    cache_timeout =  60 * 60 * 24  
+    cache_timeout =  60 * 60 * 3 
 
     def get_cache_timeout(self):
         return self.cache_timeout
@@ -18,7 +18,7 @@ class cacheMixin(object):
             return cache_page(self.get_cache_timeout())(dis)(*args, **kwargs)
 
 
-@cache_page(60 * 60 * 24)
+@cache_page(60 * 60 * 3)
 def about(request):
     return render_to_response('blog/about.html')
 
@@ -41,7 +41,7 @@ class PostView(cacheMixin, generic.DetailView):
         obj.images = models.Image.objects.filter(post = obj)
         return obj
 
-@cache_page(60 * 60 * 24)
+@cache_page(60 * 60 * 3)
 def TagsView(request):
     tags = models.Tag.objects.all()
     pre_tags = {}
