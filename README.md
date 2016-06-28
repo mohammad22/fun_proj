@@ -3,7 +3,7 @@ It is a django app. It has the basic features for a tech blog:
 
 - Integrating markdown, mathjax, and code-snippets highlighting for blog posts in django-admin.
 
-- Automating placing the images in the blog posts and storing images backend in django-admin.
+- Automating adding images (and positioning) in the blog posts and storing them backend, in django-admin.
 
 - In case you like heroku, ready to deploy on heroku (i.e., just set the environment variables, referenced in settings.py, and `git push heroku`. Done). 
 
