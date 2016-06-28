@@ -5,4 +5,5 @@ It is a django app. It has the basic features (which at least so far gets the jo
 
  -- Adding images to blog posts in django-admin.
 
+ -- In case you like heroku, it's ready to deploy on heroku (i.e., just set the environment variables, referenced in settings.py, and `git push heroku`. Done). 
 
