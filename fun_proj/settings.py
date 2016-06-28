@@ -26,11 +26,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 try:
     SECRET_KEY = urlparse.urlparse(os.environ.get('SECRET_KEY'))
 except:
-    # SECRET_KEY will e populated from local_setings
+    # SECRET_KEY will be populated from local_setings
     pass
- 
-    #from local_settings import SECRET_KEY as SK
-    #SECRET_KEY = SK
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
