@@ -13,7 +13,7 @@ It is a django app. It has the basic features (which at least so far gets the jo
  
 - Clone the project:
     ```shell 
-       git clone https://github.com/mohammad22/fu_proj
+       git clone https://github.com/mohammad22/fun_proj
     ```
  
 - make a virtualenv for the project:
@@ -23,9 +23,13 @@ It is a django app. It has the basic features (which at least so far gets the jo
     ```   
  
 - Pip install the required packages:
-    `pip install -r requirements.txt`
+    ```bash
+       pip install -r requirements.txt
+    ```
  
 - Run the server and visit `127.0.0.01:8000/blog` in the browser:
-    `python manage.py runserver`
+    ```bash 
+       python manage.py runserver
+    ```
 
 
