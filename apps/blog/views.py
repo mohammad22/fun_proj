@@ -18,6 +18,7 @@ class cacheMixin(object):
             return cache_page(self.get_cache_timeout())(dis)(*args, **kwargs)
 
 
+
 @cache_page(60 * 60 * 3)
 def about(request):
     return render_to_response('blog/about.html')
