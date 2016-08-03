@@ -13,6 +13,7 @@ django-toolbelt
 gunicorn
 redis==2.10.5
 django-redis-cache==1.6.5
+django-grappelli
 
 
 

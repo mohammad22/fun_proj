@@ -19,6 +19,7 @@ urlpatterns = patterns(
     url(r'^$', HomePageView.as_view()),
     url(r'^blog/', include('apps.blog.urls', namespace = 'blog')),
     url(r'^accounts/', include('apps.accounts.urls', namespace = 'accounts')),
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^blogadmin/', include(admin.site.urls)),
     url(r'^comments/', include('fluent_comments.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
