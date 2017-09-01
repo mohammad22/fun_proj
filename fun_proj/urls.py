@@ -21,7 +21,7 @@ urlpatterns = patterns(
     url(r'^accounts/', include('apps.accounts.urls', namespace = 'accounts')),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^blogadmin/', include(admin.site.urls)),
-    url(r'^comments/', include('fluent_comments.urls')),
+    #url(r'^comments/', include('fluent_comments.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name = 'django.contrib.sitemaps.views.sitemap'),
     #url(r'^social-accounts/', include('allauth.urls')),

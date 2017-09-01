@@ -1,15 +1,16 @@
 {% extends 'blog/base.html' %}
-{% load i18n comments fluent_comments_tags %}
-
+{% comment %} {% load i18n comments fluent_comments_tags %}
+{% endcomment %}
 {% block extrahead %} {{block.super}}
     {% load staticfiles %}
+    {% comment %}    
     <link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}" />
 {% endblock %}
 
 {% block scripts %} {{block.super}}
     <script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
 {% endblock %}
-
+    {% endcomment %}
 {% load crispy_forms_tags %}
 
 {% block centerColumn %}

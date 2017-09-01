@@ -53,7 +53,7 @@ INSTALLED_APPS = (
     #'allauth.socialaccount.providers.facebook',
     #'social.apps.django_app.default',
     'crispy_forms',
-    'fluent_comments',
+    #'fluent_comments',
     'django_comments',
     #'threadedcomments',
     'django.contrib.staticfiles',
@@ -164,7 +164,7 @@ STATICFILES_FINDERS = (
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn")
 MEDIA_URL = "/media_cdn/"
-COMMENTS_APP = 'fluent_comments'
+#COMMENTS_APP = 'fluent_comments'
 
 
 #Authentication stuff
